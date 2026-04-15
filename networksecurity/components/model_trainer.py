@@ -26,7 +26,8 @@ from sklearn.ensemble import (
 import mlflow
 from urllib.parse import urlparse
 
-
+import dagshub
+dagshub.init(repo_owner='harshshinde2696', repo_name='network_security', mlflow=True)
 
 
 
@@ -82,10 +83,10 @@ class ModelTrainer:
             "Gradient Boosting":{
                 # 'loss':['log_loss', 'exponential'],
                 'learning_rate':[.1,.01,.05,.001],
-                'subsample':[0.6,0.7,0.75,0.85,0.9],
+                'subsample':[0.6,0.75,0.9],
                 # 'criterion':['squared_error', 'friedman_mse'],
                 # 'max_features':['auto','sqrt','log2'],
-                'n_estimators': [8,16,32,64,128,256]
+                'n_estimators': [8,16,64,128,256]
             },
             "Logistic Regression":{},
             "AdaBoost":{
